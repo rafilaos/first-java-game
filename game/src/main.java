@@ -18,7 +18,9 @@ public class main{
 
         addJPanel();
         
-        exitButton();
+        addExitButton();
+        addStartButton();
+        addOptionsButton();
     }
 
      public void addJFrame(){
@@ -44,7 +46,7 @@ public class main{
         frame.add(panel, BorderLayout.CENTER);
     }
 
-    public void exitButton(){
+    public void addExitButton(){
 
         Button exitButton = new Button("Exit");
         panel.add(exitButton);
@@ -54,6 +56,34 @@ public class main{
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Exit button pressed");
                 frame.dispose();
+            }
+        });
+
+    }
+
+    public void addStartButton(){
+
+        Button startButton = new Button("Start");
+        panel.add(startButton);
+
+        startButton.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Start button pressed");
+            }
+        });
+
+    }
+
+    public void addOptionsButton(){
+
+        Button optionsButton = new Button("Options");
+        panel.add(optionsButton);
+
+        optionsButton.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Options button pressed");
             }
         });
 

@@ -6,7 +6,7 @@ public class Launcher {
         SwingUtilities.invokeLater(new Runnable() {
 
             @Override
-
+ 
             public void run(){
                 main main = new main();
                 main.show();
@@ -15,3 +15,5 @@ public class Launcher {
         
     }
 }
+
+

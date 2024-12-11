@@ -8,8 +8,12 @@ public class Launcher {
             @Override
  
             public void run(){
+
                 main main = new main();
+
+                main.Main();
                 main.show();
+
             }
         });
         

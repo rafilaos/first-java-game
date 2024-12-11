@@ -9,25 +9,37 @@ import java.awt.BorderLayout;
 
 public class mainMenu {
 
+    private JFrame mainMenuFrame;
     private JPanel mainMenuPanel;
 
-    public void main(JFrame frame, JPanel optionsMenu){
+    public void main(JPanel optionsMenu){
 
-        addMainPanel(frame);
+        addMainMenuFrame();
+        addMainPanel();
 
-        addExitButton(frame);
+        addExitButton(mainMenuFrame);
         addOptionsButton(optionsMenu);
         addStartButton();
 
     }
 
-    public void addMainPanel(JFrame frame){
+    public void addMainMenuFrame(){
+
+        mainMenuFrame = new JFrame();
+        mainMenuFrame.setTitle("Main Menu");
+        mainMenuFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        mainMenuFrame.setSize(1024,768);
+        mainMenuFrame.setLocationRelativeTo(null);;
+
+     }
+
+    public void addMainPanel(){
 
         mainMenuPanel = new JPanel();
         mainMenuPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 5));
-        mainMenuPanel.setBackground(Color.BLUE);
+        mainMenuPanel.setBackground(Color.GRAY);
 
-        frame.add(mainMenuPanel, BorderLayout.CENTER);
+        mainMenuFrame.add(mainMenuPanel, BorderLayout.CENTER);
 
     }
 
@@ -35,17 +47,16 @@ public class mainMenu {
         return mainMenuPanel;
     }
 
-    public void addExitButton(JFrame frame){
+    public void addExitButton(JFrame mainMenuPanel){
 
         Button exitButton = new Button("Exit");
         mainMenuPanel.add(exitButton);
-        exitButton.setVisible(true);
 
         exitButton.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Exit button pressed");
-                frame.dispose();
+                mainMenuPanel.dispose();
             }
         });
 
@@ -55,7 +66,6 @@ public class mainMenu {
 
         Button startButton = new Button("Start");
         mainMenuPanel.add(startButton);
-        startButton.setVisible(true);
 
         startButton.addActionListener(new ActionListener(){
             @Override
@@ -70,7 +80,6 @@ public class mainMenu {
 
         Button optionsButton = new Button("Options");
         mainMenuPanel.add(optionsButton);
-        optionsButton.setVisible(true);
 
         optionsButton.addActionListener(new ActionListener(){
             @Override

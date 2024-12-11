@@ -4,36 +4,48 @@ import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Set;
 import java.awt.Button;
 import java.awt.BorderLayout;
 
 public class optionsMenu {
     
     private JPanel optionsMenuPanel;
+    private JFrame optionsMenuFrame;
 
-    public void main(JFrame frame){
+    public void main(){
 
-        addOptionsPanel(frame);
-        addBackButton(frame);
+        addOptionsFrame();
+        addOptionsPanel();
+        addBackButton();
 
     }
 
-    public void addOptionsPanel(JFrame frame){
+    public void addOptionsFrame(){
+
+        optionsMenuFrame = new JFrame();
+        optionsMenuFrame.setTitle("Options Menu");
+        optionsMenuFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        optionsMenuFrame.setSize(1024,768);
+        optionsMenuFrame.setLocationRelativeTo(null);;
+
+     }
+
+    public void addOptionsPanel(){
 
         optionsMenuPanel = new JPanel();
         optionsMenuPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 5));
         optionsMenuPanel.setBackground(Color.GRAY);
 
-        frame.add(optionsMenuPanel, BorderLayout.CENTER);
+        optionsMenuFrame.add(optionsMenuPanel, BorderLayout.CENTER);
 
+        optionsMenuPanel.setVisible(false);
     }
 
     public JPanel getOptionsMenuPanel(){
         return optionsMenuPanel;
     }
 
-    public void addBackButton(JFrame frame){
+    public void addBackButton(){
 
         Button backButton = new Button("Start");
         optionsMenuPanel.add(backButton);

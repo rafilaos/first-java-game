@@ -12,7 +12,6 @@ public class Launcher {
                 main main = new main();
 
                 main.Main();
-                main.show();
 
             }
         });

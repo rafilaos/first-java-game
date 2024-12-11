@@ -9,8 +9,8 @@ import java.awt.BorderLayout;
 
 public class optionsMenu {
     
-    private JPanel optionsMenuPanel;
     private JFrame optionsMenuFrame;
+    private JPanel optionsMenuPanel;
 
     public void main(){
 
@@ -34,11 +34,15 @@ public class optionsMenu {
 
         optionsMenuPanel = new JPanel();
         optionsMenuPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 5));
-        optionsMenuPanel.setBackground(Color.GRAY);
+        optionsMenuPanel.setBackground(Color.RED);
 
         optionsMenuFrame.add(optionsMenuPanel, BorderLayout.CENTER);
 
         optionsMenuPanel.setVisible(false);
+    }
+
+    public JFrame getOptionsMenuFrame(){
+        return optionsMenuFrame;
     }
 
     public JPanel getOptionsMenuPanel(){
@@ -47,13 +51,18 @@ public class optionsMenu {
 
     public void addBackButton(){
 
-        Button backButton = new Button("Start");
+        Button backButton = new Button("Back");
         optionsMenuPanel.add(backButton);
 
         backButton.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Back button pressed");
+
+                optionsMenuFrame.setVisible(false);
+
+                mainMenu mainMenu = new mainMenu();
+                mainMenu.main(optionsMenuPanel);
             }
         });
 

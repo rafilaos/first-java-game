@@ -11,13 +11,16 @@ public class mainMenu {
 
     private JFrame mainMenuFrame;
     private JPanel mainMenuPanel;
+    optionsMenu optionsMenu = new optionsMenu();
 
     public void main(JPanel optionsMenu){
 
         addMainMenuFrame();
+        mainMenuFrame.setVisible(true);
         addMainPanel();
+        mainMenuPanel.setVisible(true);
 
-        addExitButton(mainMenuFrame);
+        addExitButton();
         addOptionsButton(optionsMenu);
         addStartButton();
 
@@ -47,7 +50,11 @@ public class mainMenu {
         return mainMenuPanel;
     }
 
-    public void addExitButton(JFrame mainMenuPanel){
+    public JFrame getMainMenuFrame(){
+        return mainMenuFrame;
+    }
+
+    public void addExitButton(){
 
         Button exitButton = new Button("Exit");
         mainMenuPanel.add(exitButton);
@@ -56,7 +63,7 @@ public class mainMenu {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Exit button pressed");
-                mainMenuPanel.dispose();
+                mainMenuFrame.dispose();
             }
         });
 
@@ -85,8 +92,16 @@ public class mainMenu {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                mainMenuPanel.setVisible(false);
-                optionsMenuPanel.setVisible(true);
+                //mainMenuPanel.setVisible(false);
+                mainMenuFrame.setVisible(false);
+
+                //optionsMenu.getOptionsMenuFrame().setVisible(true);
+                
+                optionsMenu.addOptionsFrame();
+                optionsMenu.getOptionsMenuFrame().setVisible(true);
+                optionsMenu.addOptionsPanel();
+                optionsMenu.getOptionsMenuPanel().setVisible(true);
+                optionsMenu.addBackButton();
             }
         });
 

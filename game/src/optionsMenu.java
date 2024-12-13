@@ -12,20 +12,12 @@ public class optionsMenu {
     private JFrame optionsMenuFrame;
     private JPanel optionsMenuPanel;
 
-    public void main(){
-
-        addOptionsFrame();
-        addOptionsPanel();
-        addBackButton();
-
-    }
-
-    public void addOptionsFrame(){
+    public void addOptionsFrame(int width, int height){
 
         optionsMenuFrame = new JFrame();
         optionsMenuFrame.setTitle("Options Menu");
         optionsMenuFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        optionsMenuFrame.setSize(1024,768);
+        optionsMenuFrame.setSize(width, height);
         optionsMenuFrame.setLocationRelativeTo(null);;
 
      }
@@ -49,6 +41,21 @@ public class optionsMenu {
         return optionsMenuPanel;
     }
 
+    public void add1920x1080Button(){
+
+        Button button1 = new Button("1920 x 1080");
+        optionsMenuPanel.add(button1);
+
+        button1.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("1920 x 1080 button pressed");
+
+            }
+        });
+
+    }
+
     public void addBackButton(){
 
         Button backButton = new Button("Back");
@@ -60,9 +67,7 @@ public class optionsMenu {
                 System.out.println("Back button pressed");
 
                 optionsMenuFrame.setVisible(false);
-
-                mainMenu mainMenu = new mainMenu();
-                mainMenu.main(optionsMenuPanel);
+                
             }
         });
 

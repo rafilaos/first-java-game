@@ -11,27 +11,15 @@ public class mainMenu {
 
     private JFrame mainMenuFrame;
     private JPanel mainMenuPanel;
+
     optionsMenu optionsMenu = new optionsMenu();
-
-    public void main(JPanel optionsMenu){
-
-        addMainMenuFrame();
-        mainMenuFrame.setVisible(true);
-        addMainPanel();
-        mainMenuPanel.setVisible(true);
-
-        addExitButton();
-        addOptionsButton(optionsMenu);
-        addStartButton();
-
-    }
 
     public void addMainMenuFrame(){
 
         mainMenuFrame = new JFrame();
         mainMenuFrame.setTitle("Main Menu");
         mainMenuFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        mainMenuFrame.setSize(1024,768);
+        mainMenuFrame.setSize(1024, 768);
         mainMenuFrame.setLocationRelativeTo(null);;
 
      }
@@ -97,9 +85,9 @@ public class mainMenu {
 
                 //optionsMenu.getOptionsMenuFrame().setVisible(true);
                 
-                optionsMenu.addOptionsFrame();
+                //optionsMenu.addOptionsFrame();
                 optionsMenu.getOptionsMenuFrame().setVisible(true);
-                optionsMenu.addOptionsPanel();
+                //optionsMenu.addOptionsPanel();
                 optionsMenu.getOptionsMenuPanel().setVisible(true);
                 optionsMenu.addBackButton();
             }
